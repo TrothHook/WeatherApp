@@ -13,7 +13,7 @@ async function getWeatherByLocation(city) {
 
     const respData = await resp.json();
 
-    console.log(respData, CtoF(respData.main.temp));
+    console.log(respData);
 
     addWeatherToPage(respData);
 
@@ -26,9 +26,8 @@ function addWeatherToPage(data) {
     weather.classList.add("weather");
 
     weather.innerHTML = `
-    <small>There are</small>
-    <h2>${temp} °C</h2>
-    <p>in ${search.value}</p>`;
+    <h2><img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"> ${temp} °C </h2>
+    <small>${data.weather[0].main}</small>`
 
     // clean up
 
@@ -38,7 +37,7 @@ function addWeatherToPage(data) {
 }
 
 function CtoF(C) {
-    return Number(((C * 1.8) + 32).toFixed(2));
+    return Number(((C * 1.8) + 32).toFixed(0));
 }
 
 form.addEventListener("submit", (e) => {
@@ -50,3 +49,8 @@ form.addEventListener("submit", (e) => {
         getWeatherByLocation(city);
     }
 });
+
+
+
+// `data.weather[0].icon`, then use it like this:
+// `https://openweathermap.org/img/w/${data.weather[0].icon}.png`

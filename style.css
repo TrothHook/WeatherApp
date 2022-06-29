@@ -14,3 +14,31 @@ body{
     font-family: "Noto Sans", sans-serif;
     background: linear-gradient(300deg, #CED1D6, #bfc0c0);
 }
+
+input {
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.456);
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: bold;
+    min-width: 300px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.weather{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.weather h2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
